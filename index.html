@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>C00kie World!</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <img src="avatar.jpg" alt="Avatar" id="avatar">
+    <h1>C00kie World!</h1>
+    <p id="welcome-text">Witaj w moim świecie! Jestem Kacper "C00kie" 🍪</p>
+    <a class="btn" href="https://github.com/C00ki-e" target="_blank">Mój GitHub</a>
+
+    <div class="lang-switch">
+      <button onclick="setLanguage('pl')">PL</button>
+      <button onclick="setLanguage('en')">EN</button>
+    </div>
+  </header>
+
+  <section>
+    <h2 id="about-title">👨‍💻 O mnie</h2>
+    <p id="about-text">Nowy programista, obecnie uczący się Pythona, HTML, CSS, JS. 15 lat. Polska 🇵🇱</p>
+  </section>
+
+  <section>
+    <h2 id="learning-title">📚 Czego się uczę</h2>
+    <ul id="skills-list">
+      <li>🐍 Python</li>
+      <li>🌐 HTML</li>
+      <li>🎨 CSS</li>
+      <li>⚙️ JavaScript</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 id="projects-title">🎮 Nad czym pracuję</h2>
+    <p id="projects-text">Obecnie pracuję nad grą 3D w Pythonie. 🎮</p>
+  </section>
+
+  <footer>
+    © 2025 C00kie World! -- Hosted by GitHub Pages
+  </footer>
+
+  <script>
+    const translations = {
+      pl: {
+        welcome: 'Witaj w moim świecie! Jestem Kacper "C00kie" 🍪',
+        aboutTitle: "👨‍💻 O mnie",
+        aboutText: "Nowy programista, obecnie uczący się Pythona, HTML, CSS, JS. 15 lat. Polska 🇵🇱",
+        learningTitle: "📚 Czego się uczę",
+        skills: [
+          "🐍 Python",
+          "🌐 HTML",
+          "🎨 CSS",
+          "⚙️ JavaScript"
+        ],
+        projectsTitle: "🎮 Nad czym pracuję",
+        projectsText: "Obecnie pracuję nad grą 3D w Pythonie. 🎮"
+      },
+      en: {
+        welcome: 'Welcome to my world! I\'m Kacper "C00kie" 🍪',
+        aboutTitle: "👨‍💻 About Me",
+        aboutText: "New programmer currently learning Python, HTML, CSS, JS. 15 yrs old. Poland 🇵🇱",
+        learningTitle: "📚 What I'm learning",
+        skills: [
+          "🐍 Python",
+          "🌐 HTML",
+          "🎨 CSS",
+          "⚙️ JavaScript"
+        ],
+        projectsTitle: "🎮 What I'm working on",
+        projectsText: "I'm currently working on a 3D game in Python. 🎮"
+      }
+    };
+
+    function setLanguage(lang) {
+      const t = translations[lang];
+      document.getElementById('welcome-text').innerText = t.welcome;
+      document.getElementById('about-title').innerText = t.aboutTitle;
+      document.getElementById('about-text').innerText = t.aboutText;
+      document.getElementById('learning-title').innerText = t.learningTitle;
+      document.getElementById('projects-title').innerText = t.projectsTitle;
+      document.getElementById('projects-text').innerText = t.projectsText;
+
+      const list = document.getElementById('skills-list');
+      list.innerHTML = '';
+      t.skills.forEach(skill => {
+        const li = document.createElement('li');
+        li.textContent = skill;
+        list.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>
